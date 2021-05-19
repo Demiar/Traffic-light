@@ -14,16 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenLight: UIView!
     @IBOutlet weak var changeLightButton: UIButton!
     var activeLight = 0
-    enum Light: Int {
-        case red
-        case yellow
-        case green
+    
+    
+    override func viewDidLoad() {
+        redLight.layer.cornerRadius = redLight.frame.size.width/2
+        yellowLight.layer.cornerRadius = yellowLight.frame.size.width/2
+        greenLight.layer.cornerRadius = greenLight.frame.size.width/2
     }
 
     @IBAction func changeLight(_ sender: UIButton) {
-        if changeLightButton.titleLabel!.text == "Start" {
-            changeLightButton.setTitle("Next", for: .normal)
+        
+        if changeLightButton.titleLabel!.text == "START" {
+            changeLightButton.setTitle("NEXT", for: .normal)
         }
+        
         switch activeLight {
         case redLight.tag:
             activeLight = yellowLight.tag
@@ -33,8 +37,6 @@ class ViewController: UIViewController {
             activeLight = greenLight.tag
             yellowLight.alpha = 0.5
             greenLight.alpha = 1
-//        case greenLight.tag:
-//            activeLight = redLight.tag
         default:
             activeLight = redLight.tag
             redLight.alpha = 1
