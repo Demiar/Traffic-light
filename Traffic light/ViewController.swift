@@ -12,7 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var redLight: UIView!
     @IBOutlet weak var yellowLight: UIView!
     @IBOutlet weak var greenLight: UIView!
+    
     @IBOutlet weak var changeLightButton: UIButton!
+    
     var activeLight = 0
     
     
